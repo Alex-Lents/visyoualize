@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Bar Chart</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    
+    <!-- Navigation -->
+    <ul class="topnav">
+      <li><a href="home.html"><img class="visyoualizelogosmall" src="Visyoualizelogosmall.png" alt="Logo of visualize that links to the home page."></a></li>
+      <li><a class="navlicurrent" href="barchart.html">Bar Charts</a></li>
+      <li><a class="navli" href="columnchart.html">Column Charts</a></li>
+      <li><a class="navli" href="linechart.html">Line Charts</a></li>
+      <li><a class="navli" href="piechart.html">Pie Charts</a></li>
+      <li><a class="navli" href="scatterchart.html">Scatter Charts</a></li>
+      <li><a class="navli" href="comparison.html">Comparison and Extra Tips</a></li>
+    </ul>
+    
+    <img class="topimg" src="BarChart.png" alt="A y-axis gives the names of different distribution centers during 2018, with a horizontal purple bar representing each distribution center that year. On the other axis is a range of values representing time to deliver, and the bars stretch to be level with certain values, showing that a given distribution center in 2018 had that time to deliver.">
+    <h1>Bar Chart</h1>
+    
+    <p class="descvis">Bar charts are best for representing <strong>categorical data</strong>, or data which can be separated into groups. Humans are very good at using length to tell objects apart from each other, and bar charts make great use of this by having longer bars mean larger values for the category. Compared to column charts, bar charts project horizontally rather than vertically. </p>
+    <h2>Example</h2>
+    
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="barChart"></canvas>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script>
+    // setup 
+    const data = {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      datasets: [{
+        label: 'Weekly Sales',
+        data: [18, 12, 6, 9, 12, 3, 9],
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.4)',
+          'rgba(54, 162, 235, 0.4)',
+          'rgba(255, 206, 86, 0.4)',
+          'rgba(75, 192, 192, 0.4)',
+          'rgba(153, 102, 255, 0.4)',
+          'rgba(255, 159, 64, 0.4)',
+          'rgba(0, 0, 0, 0.4)'
+        ],
+        borderWidth: 1
+      }]
+    };
+
+    // config 
+    const config = {
+      type: 'bar',
+      data,
+      options: {
+        indexAxis: 'y',
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // render init block
+    const barChart = new Chart(
+      document.getElementById('barChart'),
+      config
+    );
+
+    // Instantly assign Chart.js version
+    const chartVersion = document.getElementById('chartVersion');
+    chartVersion.innerText = Chart.version;
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js">
+    </script>
+
+    <h2>Further Information</h2>
+    <a class="external" href="https://www.atlassian.com/data/charts/bar-chart-complete-guide">Atlassian - A complete guide to bar charts</a>
+      <p class="disclaimer">Top image is a screenshot of a self-made chart from Microsoft Power BI. Created by Alex Lents.</p>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Line Chart</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <ul class="topnav">
+      <li><a href="home.html"><img class="visyoualizelogosmall" src="Visyoualizelogosmall.png" alt="Logo of visualize that links to the home page."></a></li>
+      <li><a class="navli" href="barchart.html">Bar Charts</a></li>
+      <li><a class="navli" href="columnchart.html">Column Charts</a></li>
+      <li><a class="navlicurrent" href="linechart.html">Line Charts</a></li>
+      <li><a class="navli" href="piechart.html">Pie Charts</a></li>
+      <li><a class="navli" href="scatterchart.html">Scatter Charts</a></li>
+      <li><a class="navli" href="comparison.html">Comparison and Extra Tips</a></li>
+    </ul>
+    <img class="topimg" src="LineChart.png" alt="An x-axis lists the months of the year during 2018, 2019, and 2020. On the other axis is a range of values representing total sales of smoothies in thousands of dollars, and blue line segments rise and fall to be level with the different month markers at different amounts of sales, indicating that during that month in that year that amount of sales of smooties was made.">
+    <h1>Line Chart</h1>
+    <p class="descvis">Line charts are best at showing time-series data, which is data where one point corresponds to a <strong>quantitative</strong>, or having a magnitude that can be measured with numbers, value at a single point or period in time, with the entirety of the points showing an ideally-continuous stretch of time. They are simple and approachable, relying on slopes to convey changes. The steeper the line segment, the greater the increase or decrease over the given time interval. When there are some time periods you do not have data for, an acceptable strategy for this visualization is to take the average of the quantitative value and include that on the chart for the missing times with a dashed line to indicate that the values are not known for certain.</p>
+    <h2>Example</h2>
+    
+    <!-- Chart -->
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="demoChart"></canvas>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script>
+    // setup 
+    const data = {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      datasets: [{
+        label: 'Weekly Sales',
+        data: [11, 12, 6, 10, 12, 3, 9],
+        backgroundColor: [
+          'rgba(54, 162, 235, 0.4)',
+          'rgba(54, 162, 235, 0.4)',
+          'rgba(54, 162, 235, 0.4)',
+          'rgba(54, 162, 235, 0.4)',
+          'rgba(54, 162, 235, 0.4)',
+          'rgba(54, 162, 235, 0.4)',
+          'rgba(54, 162, 235, 0.4)'
+        ],
+        fill: false,
+        borderWidth: 5,
+        pointRadius: 1,
+        borderColor: "rgba(54, 162, 235, 0.4)"
+      }]
+    };
+
+    // config 
+    const config = {
+      type: 'line',
+      data,
+      options: {
+        indexAxis: 'x',
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // render init block
+    const demoChart = new Chart(
+      document.getElementById('demoChart'),
+      config
+    );
+
+    // Instantly assign Chart.js version
+    const chartVersion = document.getElementById('chartVersion');
+    chartVersion.innerText = Chart.version;
+    </script>
+
+    <h2>Further Information</h2>
+    <a class="external" href="https://www.atlassian.com/data/charts/line-chart-complete-guide">Atlassian - A Complete Guide to Line Charts</a>
+    <p class="disclaimer">Top image is a screenshot of a self-made chart from Microsoft Power BI. Created by Alex Lents.</p>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Pie Chart</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <ul class="topnav">
+      <li><a href="home.html"><img class="visyoualizelogosmall" src="Visyoualizelogosmall.png" alt="Logo of visualize that links to the home page."></a></li>
+      <li><a class="navli" href="barchart.html">Bar Charts</a></li>
+      <li><a class="navli" href="columnchart.html">Column Charts</a></li>
+      <li><a class="navli" href="linechart.html">Line Charts</a></li>
+      <li><a class="navlicurrent" href="piechart.html">Pie Charts</a></li>
+      <li><a class="navli" href="scatterchart.html">Scatter Charts</a></li>
+      <li><a class="navli" href="comparison.html">Comparison and Extra Tips</a></li>
+    </ul>
+    <img class="topimg" src="PieChart.png" alt="A circle is divided into many slices of differing sizes and colors. Each slice represents a different flavor of a product, and its size corresponds with how large of a percentage of the total sales in thousands of dollars that the flavor accounts for, with the exact percentage labeled next to each slice.">
+    <h1>Pie Chart</h1>
+    <p class="descvis">Pie charts are best for showing part-to-whole relationships in data. Although they have a place, they are frequently misused. As opposed to the other visualizations which rely on height and length to convey differences, two pie pieces of similar size can be difficult if not impossible to tell apart, and how much each piece contributes to the whole can be hard to tell when there are many pieces, such as in the example above. Pie charts should generally have only a few pieces to be most effective.</p>
+    <h2>Example</h2>
+    
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="barChart"></canvas>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script>
+    // setup 
+    const data = {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      datasets: [{
+        label: 'Weekly Sales',
+        data: [20, 15, 15, 10, 10, 10, 10],
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.4)',
+          'rgba(54, 162, 235, 0.4)',
+          'rgba(255, 206, 86, 0.4)',
+          'rgba(75, 192, 192, 0.4)',
+          'rgba(153, 102, 255, 0.4)',
+          'rgba(255, 159, 64, 0.4)',
+          'rgba(0, 0, 0, 0.4)'
+        ],
+        borderWidth: 1
+      }]
+    };
+
+    // config 
+    const config = {
+      type: 'pie',
+      data,
+      options: {
+        indexAxis: 'y',
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // render init block
+    const barChart = new Chart(
+      document.getElementById('barChart'),
+      config
+    );
+
+    // Instantly assign Chart.js version
+    const chartVersion = document.getElementById('chartVersion');
+    chartVersion.innerText = Chart.version;
+    </script>
+   
+    <h2>Further Information</h2>
+    <a class="external" href="https://www.atlassian.com/data/charts/pie-chart-complete-guide">Atlassian - A complete guide to pie charts</a>
+    <p class="disclaimer">Top image is a screenshot of a self-made chart from Microsoft Power BI. Created by Alex Lents.</p>
+  </body>
+</html>
